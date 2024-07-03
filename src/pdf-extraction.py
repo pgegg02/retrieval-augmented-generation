@@ -3,7 +3,7 @@ import PyPDF2
 import nltk
 import json
 from pathlib import Path
-from constants import TEMP
+from constants import TEMP, DATA
 
 nltk.download('punkt')
 
@@ -42,7 +42,7 @@ def save_sentences_to_json(sentences, json_file_path):
 
 
 if __name__ == '__main__':
-    pdf_file_path = 'path/to/pdf'
+    pdf_file_path = DATA + '/GPT_Story.pdf'
     text_file_path = text_from_pdf(pdf_file_path)
 
     sentences = split_into_sentences(text_file_path)
