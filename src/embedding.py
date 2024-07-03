@@ -4,7 +4,7 @@ from sentence_transformers import SentenceTransformer
 from constants import TEMP
 import os
 import json
-
+from constants import TEMP
 
 def extract_sentences(jsonfile: str):
     sentences = []
@@ -13,6 +13,10 @@ def extract_sentences(jsonfile: str):
 
     for item in data:
         sentences.extend(item.replace("\n", " ").split('. '))
+
+    with open(f'{TEMP}/sentences.json', 'w') as f:
+        json.dump(sentences, f, indent=4)
+
     return sentences
 
 
@@ -32,7 +36,7 @@ def push_embeddings_to_db(embeddings: list):
     vectors = []
 
     for i, embedded_sentence in enumerate(embeddings):
-        vectors.append({"id": f"sentence-{i}", "values": embedded_sentence})
+        vectors.append({"id": f"sentence-{i}", "values": embedded_sentence, "metadata": {"sentence-index": i}})
 
     index.upsert(vectors, namespace='sentences')
 
