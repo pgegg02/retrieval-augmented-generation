@@ -10,7 +10,7 @@ The primary components are:
 
 ### Prerequisites
 
-- python ^3.12  
+- python 3.12  
 - pypdf2 3.0.1  
 - nltk 3.8.1  
 - pinecone 4.0.0  
