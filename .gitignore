@@ -2,4 +2,3 @@
 .idea/
 poetry.lock
 pyproject.toml
-src/retrieve_context.py
