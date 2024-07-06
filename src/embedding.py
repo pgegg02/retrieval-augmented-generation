@@ -4,7 +4,6 @@ from sentence_transformers import SentenceTransformer
 from constants import TEMP
 import os
 import json
-from constants import TEMP
 
 def extract_sentences(jsonfile: str):
     sentences = []
